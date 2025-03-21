@@ -35,7 +35,7 @@ const Header = () => {
                 <TabsTrigger 
                   value="about" 
                   onClick={handleAboutClick}
-                  className="text-white hover:text-white data-[state=active]:bg-transparent data-[state=active]:border-b data-[state=active]:border-white data-[state=active]:rounded-none data-[state=active]:shadow-none px-2 py-1"
+                  className="text-white hover:text-white data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=active]:shadow-none px-2 py-1 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-white after:bottom-0 after:left-0 after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                 >
                   About Me
                 </TabsTrigger>
