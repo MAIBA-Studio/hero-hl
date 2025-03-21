@@ -5,11 +5,14 @@ import BookingForm from './BookingForm';
 import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { AspectRatio } from './ui/aspect-ratio';
+import { Mail } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleAboutClick = () => {
     setIsAboutOpen(true);
@@ -32,19 +35,29 @@ const Header = () => {
                 <TabsTrigger 
                   value="about" 
                   onClick={handleAboutClick}
-                  className="text-white/90 hover:text-white data-[state=active]:bg-transparent data-[state=active]:border-b data-[state=active]:border-white data-[state=active]:rounded-none data-[state=active]:shadow-none px-2 py-1"
+                  className="text-white hover:text-white data-[state=active]:bg-transparent data-[state=active]:border-b data-[state=active]:border-white data-[state=active]:rounded-none data-[state=active]:shadow-none px-2 py-1"
                 >
                   About Me
                 </TabsTrigger>
               </TabsList>
             </Tabs>
             
-            <button
-              onClick={() => setIsFormOpen(true)}
-              className="font-helvetica font-normal text-white text-sm px-6 py-2 border border-white/20 hover:bg-white/10 transition-all duration-300"
-            >
-              Book a Talk
-            </button>
+            {isMobile ? (
+              <button
+                onClick={() => setIsFormOpen(true)}
+                className="text-white p-2 hover:bg-white/10 transition-all duration-300 rounded-full"
+                aria-label="Book a Talk"
+              >
+                <Mail size={24} />
+              </button>
+            ) : (
+              <button
+                onClick={() => setIsFormOpen(true)}
+                className="font-helvetica font-normal text-white text-sm px-6 py-2 border border-white/20 hover:bg-white/10 transition-all duration-300"
+              >
+                Book a Talk
+              </button>
+            )}
           </div>
         </div>
       </header>
