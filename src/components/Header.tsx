@@ -4,9 +4,7 @@ import Logo from './Logo';
 import BookingForm from './BookingForm';
 import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
-import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { AspectRatio } from './ui/aspect-ratio';
-import { X } from 'lucide-react';
 
 const Header = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -55,15 +53,6 @@ const Header = () => {
       <Dialog open={isAboutOpen} onOpenChange={setIsAboutOpen}>
         <DialogContent className="max-w-3xl p-0 overflow-auto max-h-[90vh]">
           <div className="p-6 md:p-8">
-            <div className="absolute right-4 top-4">
-              <button
-                onClick={() => setIsAboutOpen(false)}
-                className="rounded-full p-1 hover:bg-gray-100 transition-colors"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            
             <DialogHeader className="mb-6">
               <DialogTitle className="text-2xl md:text-3xl font-helvetica font-bold tracking-wide">
                 ABOUT ME
@@ -72,7 +61,7 @@ const Header = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center md:items-start">
-                <div className="w-48 h-auto overflow-hidden rounded-md">
+                <div className="w-full md:w-48 h-auto overflow-hidden rounded-md">
                   <AspectRatio ratio={1/1} className="bg-muted">
                     <img 
                       src="/lovable-uploads/29d21dc0-c6c4-4c46-aad0-ec6942d83dc8.png" 
@@ -96,6 +85,15 @@ const Header = () => {
                   Before founding his companies, Mr. Larren worked at LVMH and Pernod Ricard. Mr. Larren is an alumnus of the Harvard Business School Presidents' Program and holds an MBA from Columbia Business School. He is a member of the Young Presidents' Organization (YPO).
                 </p>
               </div>
+            </div>
+            
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setIsAboutOpen(false)}
+                className="font-helvetica px-6 py-2 border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+              >
+                Close
+              </button>
             </div>
           </div>
         </DialogContent>
