@@ -75,7 +75,7 @@ const Header = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center md:items-start">
                 <div className="w-full md:w-48 h-auto overflow-hidden rounded-md">
-                  <AspectRatio ratio={1/1} className="bg-muted">
+                  <AspectRatio ratio={4/3} className="bg-muted">
                     <img 
                       src="/lovable-uploads/29d21dc0-c6c4-4c46-aad0-ec6942d83dc8.png" 
                       alt="Hervé Larren"
