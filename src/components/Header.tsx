@@ -2,12 +2,20 @@
 import { useState } from 'react';
 import Logo from './Logo';
 import BookingForm from './BookingForm';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+import { X } from 'lucide-react';
 
 const Header = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+
+  const handleAboutClick = () => {
+    setIsAboutOpen(true);
+    setActiveTab('about');
+  };
 
   return (
     <>
@@ -24,6 +32,7 @@ const Header = () => {
               <TabsList className="bg-transparent p-0 h-auto">
                 <TabsTrigger 
                   value="about" 
+                  onClick={handleAboutClick}
                   className="text-white/90 hover:text-white data-[state=active]:bg-transparent data-[state=active]:border-b data-[state=active]:border-white data-[state=active]:rounded-none data-[state=active]:shadow-none px-2 py-1"
                 >
                   About Me
@@ -40,6 +49,51 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      {/* About Me Dialog */}
+      <Dialog open={isAboutOpen} onOpenChange={setIsAboutOpen}>
+        <DialogContent className="max-w-3xl p-0 overflow-auto max-h-[90vh]">
+          <div className="p-6 md:p-8">
+            <div className="absolute right-4 top-4">
+              <button
+                onClick={() => setIsAboutOpen(false)}
+                className="rounded-full p-1 hover:bg-gray-100 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
+            <DialogHeader className="mb-6">
+              <DialogTitle className="text-2xl md:text-3xl font-helvetica font-bold tracking-wide">
+                ABOUT ME
+              </DialogTitle>
+            </DialogHeader>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center md:items-start">
+                <Avatar className="h-48 w-48 rounded-md">
+                  <AvatarImage src="/lovable-uploads/29d21dc0-c6c4-4c46-aad0-ec6942d83dc8.png" alt="Hervé Larren" />
+                  <AvatarFallback className="text-lg">HL</AvatarFallback>
+                </Avatar>
+              </div>
+              
+              <div className="col-span-1 md:col-span-2 space-y-6 font-helvetica">
+                <p className="text-base leading-relaxed">
+                  <strong>Hervé Larren</strong> is the Founder and CEO of Airvey.io, an enterprise that builds, supports, and advises Web 3.0 companies. A Bitcoin and blockchain adopter since 2013, Mr. Larren became one of the first crypto miners in the US before listing the proceeds in public vehicles with Grayscale. He has advised over a dozen projects, including Horizen Labs and the creation of Yuga Labs' ApeCoin (valued at $8 billion at launch), Decentraland and the creation of the largest commercial zone in the Metaverse, and the Horizen ZEN token (ATH: $1.3 billion).
+                </p>
+                
+                <p className="text-base leading-relaxed">
+                  Mr. Larren has been profiled in publications such as CoinTelegraph, Forbes, Bloomberg Magazine, American Express Spotlight Series, and The Huffington Post, as well as making TV appearances on Bloomberg, KTLA, and E! News. He is a renowned figure on the international speaker circuit, having spoken at over 30 conferences in 10 countries.
+                </p>
+                
+                <p className="text-base leading-relaxed">
+                  Before founding his companies, Mr. Larren worked at LVMH and Pernod Ricard. Mr. Larren is an alumnus of the Harvard Business School Presidents' Program and holds an MBA from Columbia Business School. He is a member of the Young Presidents' Organization (YPO).
+                </p>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {isFormOpen && <BookingForm onClose={() => setIsFormOpen(false)} />}
     </>
