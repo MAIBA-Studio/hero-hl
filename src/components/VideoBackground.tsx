@@ -20,7 +20,7 @@ const VideoBackground: React.FC = () => {
         playsInline
         className="object-cover w-full h-full"
       >
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-32809-large.mp4" type="video/mp4" />
+        <source src="/HEVC2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-black opacity-30"></div>
