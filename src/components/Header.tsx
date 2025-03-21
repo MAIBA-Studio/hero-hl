@@ -75,7 +75,7 @@ const Header = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center md:items-start">
                 <div className="w-full md:w-48 h-auto overflow-hidden rounded-md">
-                  <AspectRatio ratio={4/3} className="bg-muted">
+                  <AspectRatio ratio={3/4} className="bg-muted">
                     <img 
                       src="/lovable-uploads/29d21dc0-c6c4-4c46-aad0-ec6942d83dc8.png" 
                       alt="Hervé Larren"
@@ -86,15 +86,15 @@ const Header = () => {
               </div>
               
               <div className="col-span-1 md:col-span-2 space-y-6 font-helvetica">
-                <p className="text-base leading-relaxed">
+                <p className="text-base leading-relaxed text-justify">
                   <strong>Hervé Larren</strong> is the Founder and CEO of Airvey.io, an enterprise that builds, supports, and advises Web 3.0 companies. A Bitcoin and blockchain adopter since 2013, Mr. Larren became one of the first crypto miners in the US before listing the proceeds in public vehicles with Grayscale. He has advised over a dozen projects, including Horizen Labs and the creation of Yuga Labs' ApeCoin (valued at $8 billion at launch), Decentraland and the creation of the largest commercial zone in the Metaverse, and the Horizen ZEN token (ATH: $1.3 billion).
                 </p>
                 
-                <p className="text-base leading-relaxed">
+                <p className="text-base leading-relaxed text-justify">
                   Mr. Larren has been profiled in publications such as CoinTelegraph, Forbes, Bloomberg Magazine, American Express Spotlight Series, and The Huffington Post, as well as making TV appearances on Bloomberg, KTLA, and E! News. He is a renowned figure on the international speaker circuit, having spoken at over 30 conferences in 10 countries.
                 </p>
                 
-                <p className="text-base leading-relaxed">
+                <p className="text-base leading-relaxed text-justify">
                   Before founding his companies, Mr. Larren worked at LVMH and Pernod Ricard. Mr. Larren is an alumnus of the Harvard Business School Presidents' Program and holds an MBA from Columbia Business School. He is a member of the Young Presidents' Organization (YPO).
                 </p>
               </div>
