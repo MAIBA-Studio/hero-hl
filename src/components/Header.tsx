@@ -5,6 +5,7 @@ import BookingForm from './BookingForm';
 import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+import { AspectRatio } from './ui/aspect-ratio';
 import { X } from 'lucide-react';
 
 const Header = () => {
@@ -71,10 +72,15 @@ const Header = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center md:items-start">
-                <Avatar className="h-48 w-48 rounded-md">
-                  <AvatarImage src="/lovable-uploads/29d21dc0-c6c4-4c46-aad0-ec6942d83dc8.png" alt="Hervé Larren" />
-                  <AvatarFallback className="text-lg">HL</AvatarFallback>
-                </Avatar>
+                <div className="w-48 h-auto overflow-hidden rounded-md">
+                  <AspectRatio ratio={1/1} className="bg-muted">
+                    <img 
+                      src="/lovable-uploads/29d21dc0-c6c4-4c46-aad0-ec6942d83dc8.png" 
+                      alt="Hervé Larren"
+                      className="object-cover w-full h-full" 
+                    />
+                  </AspectRatio>
+                </div>
               </div>
               
               <div className="col-span-1 md:col-span-2 space-y-6 font-helvetica">
