@@ -28,7 +28,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoaded }) => {
 
   return (
     <div className="fixed inset-0 bg-white z-[100] flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-helvetica mb-6">Hervé Larren</h1>
+      <h1 className="text-3xl font-helvetica font-bold uppercase mb-6">Hervé Larren</h1>
       <div className="w-40 h-px bg-black/10 relative overflow-hidden">
         <div 
           className="h-full bg-black"
